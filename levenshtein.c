@@ -35,6 +35,12 @@ int main(int argc, char *argv[]) {
             n1 <<= 1; n <<= 1;
             sentence1 = (char*) realloc(sentence1, sizeof(char) * n1);
             text = (char*) realloc(text, sizeof(char) * n);
+            if(sentence1 == NULL || text == NULL) {
+                printf(" **Error: allocation: memory is insufficient.\n");
+                free(sentence1); free(text);
+                fclose(fp1); fclose(fp2);
+                exit(1);
+            }
         }
         strcat(sentence1, text);
     }
@@ -49,6 +55,12 @@ int main(int argc, char *argv[]) {
             n2 <<= 1; n <<= 1;
             sentence2 = (char*) realloc(sentence2, sizeof(char) * n2);
             text = (char*) realloc(text, sizeof(char) * n);
+            if(sentence2 == NULL || text == NULL) {
+                printf(" **Error: allocation: memory is insufficient.\n");
+                free(sentence1); free(sentence2); free(text);
+                fclose(fp1); fclose(fp2);
+                exit(1);
+            }
         }
         strcat(sentence2, text);
     }
