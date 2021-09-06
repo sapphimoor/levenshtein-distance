@@ -1,5 +1,5 @@
 # levenshtein-distance
-this program computate the levenshtein distance.
+this program compute the levenshtein distance.
 
 ## Execution procedure
     gcc levenshtein.c -o levenshtein  
