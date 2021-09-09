@@ -67,7 +67,8 @@ int main(int argc, char *argv[]) {
     printf("levenshtein distance: %d\n", score[n0-1][n1-1]);
 
     for(i=0; i<3; i++) free(sentence[i]);
-    free(sentence); free(n);
+    for(i=0; i<n0; i++) free(score[i]);
+    free(sentence); free(score); free(n);
 
     return 0;
 }
